@@ -1,0 +1,409 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.API\\Tarefas.API.csproj": {}
+  },
+  "projects": {
+    "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.API\\Tarefas.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.API\\Tarefas.API.csproj",
+        "projectName": "Tarefas.API",
+        "projectPath": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.API\\Tarefas.API.csproj",
+        "packagesPath": "C:\\Users\\zeedu\\.nuget\\packages\\",
+        "outputPath": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\zeedu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Ioc\\Tarefas.Ioc.csproj": {
+                "projectPath": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Ioc\\Tarefas.Ioc.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.Logging.Log4Net.AspNetCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.19.5, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Application\\Tarefas.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Application\\Tarefas.Application.csproj",
+        "projectName": "Tarefas.Application",
+        "projectPath": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Application\\Tarefas.Application.csproj",
+        "packagesPath": "C:\\Users\\zeedu\\.nuget\\packages\\",
+        "outputPath": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\zeedu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Domain\\Tarefas.Domain.csproj": {
+                "projectPath": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Domain\\Tarefas.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Domain\\Tarefas.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Domain\\Tarefas.Domain.csproj",
+        "projectName": "Tarefas.Domain",
+        "projectPath": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Domain\\Tarefas.Domain.csproj",
+        "packagesPath": "C:\\Users\\zeedu\\.nuget\\packages\\",
+        "outputPath": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\zeedu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Infra\\Tarefas.Infra.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Infra\\Tarefas.Infra.csproj",
+        "projectName": "Tarefas.Infra",
+        "projectPath": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Infra\\Tarefas.Infra.csproj",
+        "packagesPath": "C:\\Users\\zeedu\\.nuget\\packages\\",
+        "outputPath": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Infra\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\zeedu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Domain\\Tarefas.Domain.csproj": {
+                "projectPath": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Domain\\Tarefas.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.19.5, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Ioc\\Tarefas.Ioc.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Ioc\\Tarefas.Ioc.csproj",
+        "projectName": "Tarefas.Ioc",
+        "projectPath": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Ioc\\Tarefas.Ioc.csproj",
+        "packagesPath": "C:\\Users\\zeedu\\.nuget\\packages\\",
+        "outputPath": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Ioc\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\zeedu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Application\\Tarefas.Application.csproj": {
+                "projectPath": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Application\\Tarefas.Application.csproj"
+              },
+              "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Domain\\Tarefas.Domain.csproj": {
+                "projectPath": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Domain\\Tarefas.Domain.csproj"
+              },
+              "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Infra\\Tarefas.Infra.csproj": {
+                "projectPath": "C:\\CursoWebApi\\desafio-mv\\TarefaAPI\\Tarefas.Infra\\Tarefas.Infra.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Options.ConfigurationExtensions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

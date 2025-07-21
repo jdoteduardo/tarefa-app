@@ -1,0 +1,17 @@
+C:\CursoWebApi\desafio-mv\TarefaAPI\Tarefas.Infra\bin\Debug\net8.0\Tarefas.Infra.deps.json
+C:\CursoWebApi\desafio-mv\TarefaAPI\Tarefas.Infra\bin\Debug\net8.0\Tarefas.Infra.runtimeconfig.json
+C:\CursoWebApi\desafio-mv\TarefaAPI\Tarefas.Infra\bin\Debug\net8.0\Tarefas.Infra.dll
+C:\CursoWebApi\desafio-mv\TarefaAPI\Tarefas.Infra\bin\Debug\net8.0\Tarefas.Infra.pdb
+C:\CursoWebApi\desafio-mv\TarefaAPI\Tarefas.Infra\bin\Debug\net8.0\Tarefas.Domain.dll
+C:\CursoWebApi\desafio-mv\TarefaAPI\Tarefas.Infra\bin\Debug\net8.0\Tarefas.Domain.pdb
+C:\CursoWebApi\desafio-mv\TarefaAPI\Tarefas.Infra\obj\Debug\net8.0\Tarefas.Infra.csproj.AssemblyReference.cache
+C:\CursoWebApi\desafio-mv\TarefaAPI\Tarefas.Infra\obj\Debug\net8.0\Tarefas.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\CursoWebApi\desafio-mv\TarefaAPI\Tarefas.Infra\obj\Debug\net8.0\Tarefas.Infra.AssemblyInfoInputs.cache
+C:\CursoWebApi\desafio-mv\TarefaAPI\Tarefas.Infra\obj\Debug\net8.0\Tarefas.Infra.AssemblyInfo.cs
+C:\CursoWebApi\desafio-mv\TarefaAPI\Tarefas.Infra\obj\Debug\net8.0\Tarefas.Infra.csproj.CoreCompileInputs.cache
+C:\CursoWebApi\desafio-mv\TarefaAPI\Tarefas.Infra\obj\Debug\net8.0\Tarefas.Infra.csproj.CopyComplete
+C:\CursoWebApi\desafio-mv\TarefaAPI\Tarefas.Infra\obj\Debug\net8.0\Tarefas.Infra.dll
+C:\CursoWebApi\desafio-mv\TarefaAPI\Tarefas.Infra\obj\Debug\net8.0\refint\Tarefas.Infra.dll
+C:\CursoWebApi\desafio-mv\TarefaAPI\Tarefas.Infra\obj\Debug\net8.0\Tarefas.Infra.pdb
+C:\CursoWebApi\desafio-mv\TarefaAPI\Tarefas.Infra\obj\Debug\net8.0\Tarefas.Infra.genruntimeconfig.cache
+C:\CursoWebApi\desafio-mv\TarefaAPI\Tarefas.Infra\obj\Debug\net8.0\ref\Tarefas.Infra.dll
