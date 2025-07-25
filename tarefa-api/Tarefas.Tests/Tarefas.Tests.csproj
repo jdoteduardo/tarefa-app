@@ -26,8 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\tarefa-api\Tarefas.API\Tarefas.API.csproj" />
-    <ProjectReference Include="..\tarefa-api\Tarefas.Application\Tarefas.Application.csproj" />
+    <ProjectReference Include="..\Tarefas.API\Tarefas.API.csproj" />
+    <ProjectReference Include="..\Tarefas.Application\Tarefas.Application.csproj" />
   </ItemGroup>
 
 </Project>
