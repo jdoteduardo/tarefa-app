@@ -1,0 +1,40 @@
+<mat-card class="form-tarefa-card">
+  <h2 class="card-title">{{ tarefa ? 'Editar Tarefa' : 'Nova Tarefa' }}</h2>
+  <mat-card-content>
+    <form [formGroup]="tarefaForm" (ngSubmit)="onSubmit()">
+      <div class="column">
+        <label class="input-field" [class.filled]="tarefaForm.get('TITULO')?.value">
+          <input type="text" formControlName="TITULO" name="titulo" required />
+          <span>Título*</span>
+        </label>
+        <label class="input-field" [class.filled]="tarefaForm.get('DESCRICAO')?.value">
+          <input type="text" formControlName="DESCRICAO" name="descricao" required />
+          <span>Descrição*</span>
+        </label>
+        <label class="input-field" [class.filled]="tarefaForm.get('DATA_LIMITE')?.value">
+          <input type="date" formControlName="DATA_LIMITE" name="dataLimite" required [min]="minDate" />
+          <span>Data Limite*</span>
+        </label>
+        <div class="concluida-row">
+          <span class="concluida-label">Concluída:</span>
+          <div class="concluida-checkbox">
+            <input type="checkbox" formControlName="CONCLUIDA" name="concluida" />
+          </div>
+        </div>
+      </div>
+      <div class="actions-row">
+        <button mat-raised-button color="primary" type="submit">
+          Salvar
+        </button>
+        <button mat-button type="button" color="warn" (click)="onCancelar()">
+          Cancelar
+        </button>
+      </div>
+    </form>
+    <div *ngIf="formInvalido" class="alerta-form">
+      <mat-card color="warn" class="mat-elevation-z2 alerta-form-content">
+        <p>⚠️ Por favor, preencha todos os campos obrigatórios corretamente.</p>
+      </mat-card>
+    </div>
+  </mat-card-content>
+</mat-card>

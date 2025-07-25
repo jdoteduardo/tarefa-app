@@ -1,0 +1,27 @@
+# VS Code directories
+.vs/
+.vscode/
+
+# Visual Studio files
+*.user
+*.userosscache
+*.sln.docstates
+*.vsidx
+
+# Build directories
+bin/
+obj/
+dist/
+node_modules/
+
+# Docker volumes
+dbmysql-volume/
+
+# Environment files
+.env
+*.env.local
+
+# Debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

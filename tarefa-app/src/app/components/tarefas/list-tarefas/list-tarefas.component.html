@@ -1,0 +1,78 @@
+<div class="tarefas-container">
+  <div class="tarefas-content">
+    <div *ngIf="!criarOuEditar" class="header-row">
+      <button mat-raised-button color="primary" (click)="adicionarTarefa()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <app-form-tarefas
+      *ngIf="criarOuEditar"
+      [tarefa]="tarefaEditando"
+      (cancelar)="cancelarEdicao()"
+      (salvarOuEditarTarefa)="salvarOuEditarTarefa()"
+    ></app-form-tarefas>
+
+    <ng-container *ngIf="!criarOuEditar">
+      <!-- Filtro -->
+      <mat-form-field appearance="outline" class="filtro-field">
+        <mat-label>Filtrar</mat-label>
+        <input matInput (keyup)="aplicarFiltro($event)" placeholder="Ex. ium" #input>
+      </mat-form-field>
+
+      <!-- Tabela -->
+      <table *ngIf="!criarOuEditar" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 tarefas-table">
+        <ng-container matColumnDef="titulo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Título </th>
+          <td mat-cell *matCellDef="let tarefa"> {{tarefa.titulo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="descricao">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Descrição </th>
+          <td mat-cell *matCellDef="let tarefa"> {{tarefa.descricao}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dataLimite">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Data Limite </th>
+          <td mat-cell *matCellDef="let tarefa"> {{tarefa.dataLimite | date:'dd/MM/yyyy'}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="concluida">
+          <th mat-header-cell *matHeaderCellDef> Concluída </th>
+          <td mat-cell *matCellDef="let tarefa">
+            <mat-icon color="primary">{{ tarefa.concluida ? 'check_circle' : 'cancel' }}</mat-icon>
+          </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="acoes">
+          <th mat-header-cell *matHeaderCellDef> Ações </th>
+          <td mat-cell *matCellDef="let tarefa">
+            <button mat-icon-button color="primary" (click)="editarTarefa(tarefa)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deletarTarefa(tarefa)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <!-- Paginador -->
+      <mat-paginator 
+        [length]="tarefas.length"
+        [pageSize]="10"
+        [pageSizeOptions]="[10]"
+        showFirstLastButtons
+        aria-label="Selecione a página">
+      </mat-paginator>
+    </ng-container>
+
+    <app-modal-confirmar-exclusao
+        [show]="showDeleteModal"
+        (confirm)="confirmarDelete()"
+        (cancel)="showDeleteModal = false">
+    </app-modal-confirmar-exclusao>
+  </div>
+</div>
