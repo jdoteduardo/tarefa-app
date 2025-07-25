@@ -85,6 +85,7 @@ export class FormTarefasComponent {
   }
 
   onSubmit() {
+    this.formInvalido = false;
     if (this.validarForm()) {
       const tarefa = this.montarTarefa();
       if (this.acao === 'Editar')

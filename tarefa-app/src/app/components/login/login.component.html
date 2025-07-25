@@ -23,6 +23,11 @@
                     <mat-icon>login</mat-icon>
                     Entrar
                 </button>
+                <div *ngIf="formInvalido || loginError" class="alerta-form">
+                    <mat-card color="warn" class="mat-elevation-z2 alerta-form-content">
+                        <p>⚠️ {{formInvalido ? 'Preencha o login e senha corretamente.' : 'Login ou senha incorretos.'}}</p>
+                    </mat-card>
+                </div>
             </form>
         </mat-card-content>
     </mat-card>

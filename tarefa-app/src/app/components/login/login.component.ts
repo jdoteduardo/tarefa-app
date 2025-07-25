@@ -29,6 +29,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  formInvalido: boolean = false;
+  loginError: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -36,26 +38,44 @@ export class LoginComponent implements OnInit {
     private router: Router) {
     this.loginForm = this.fb.group({
       USUARIO: ['', [Validators.required, Validators.minLength(3)]],
-      SENHA: ['', [Validators.required, Validators.minLength(3)]]
+      SENHA: ['', [Validators.required]]
     });
   }
 
   ngOnInit() { }
 
   onSubmit() {
-    if (this.validarForm()) {
-      const usuario: IUsuario = {
-        login: this.loginForm.get('USUARIO')?.value,
-        senha: this.loginForm.get('SENHA')?.value
-      };
+    this.formInvalido = false;
+    this.loginError = false;
 
-      this.authService.login(usuario)
-        .pipe(
-          catchError(error => {
-            throw error;
-          })
-        ).subscribe(data => this.salvarToken(data.access_token))
+    if (this.loginForm.invalid) {
+      this.formInvalido = true;
+      return;
     }
+
+    const usuario: IUsuario = {
+      login: this.loginForm.get('USUARIO')?.value,
+      senha: this.loginForm.get('SENHA')?.value
+    };
+
+    this.authService.login(usuario)
+      .pipe(
+        catchError(error => {
+          console.error('Login error:', error);
+          this.loginError = true;
+          throw error;
+        })
+      )
+      .subscribe({
+        next: (response) => {
+          console.log('Login successful');
+          this.salvarToken(response.access_token);
+          this.router.navigate(['/tarefas']);
+        },
+        error: () => {
+          console.error('Login failed');
+        }
+      });
   }
 
   salvarToken(token: string) {
@@ -64,10 +84,6 @@ export class LoginComponent implements OnInit {
   }
 
   validarForm(): boolean {
-    let formValid = true;
-    if (this.loginForm.valid)
-      formValid = false;
-
-    return formValid;
+    return this.loginForm.valid;
   }
 }

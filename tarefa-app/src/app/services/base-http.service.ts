@@ -1,13 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BaseHttpService {
 
-  private readonly url = 'http://localhost:5000/api/v1';
+  private readonly url = environment.apiUrl;
 
   constructor(private httpClient: HttpClient) { }
 
