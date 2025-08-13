@@ -16,7 +16,9 @@ namespace Tarefas.Infra.Repositories
 
         public async Task<IEnumerable<Tarefa>> ListarTarefas()
         {
-            return await _context.Tarefas.ToListAsync();
+            return await _context.Tarefas
+                .AsNoTracking()
+                .ToListAsync();
         }
 
         public async Task<Tarefa?> BuscarPorId(Guid id)
