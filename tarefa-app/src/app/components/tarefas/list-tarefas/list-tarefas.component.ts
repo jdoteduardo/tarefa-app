@@ -11,6 +11,7 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-tarefas',
@@ -36,13 +37,12 @@ export class ListTarefasComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['titulo', 'descricao', 'dataLimite', 'concluida', 'acoes'];
   criarOuEditar: boolean = false;
   tarefaExcluir: ITarefa | null = null;
-  tarefaEditando: ITarefa | null = null;
   showDeleteModal: boolean = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private tarefaService: TarefaService) {
+  constructor(private tarefaService: TarefaService, private router: Router) {
     this.dataSource = new MatTableDataSource<ITarefa>();
   }
 
@@ -89,21 +89,20 @@ export class ListTarefasComponent implements OnInit, AfterViewInit {
 
   editarTarefa(tarefa: ITarefa) {
     this.criarOuEditar = true;
-    this.tarefaEditando = { ...tarefa };
+    this.router.navigate(['/tarefas', tarefa.id]);
   }
 
   cancelarEdicao() {
     this.criarOuEditar = false;
-    this.tarefaEditando = null;
   }
 
   adicionarTarefa() {
     this.criarOuEditar = true;
+    this.router.navigate(['/tarefas/nova']);
   }
 
   salvarOuEditarTarefa() {
     this.criarOuEditar = false;
-    this.tarefaEditando = null;
     this.listarTarefas();
   }
 

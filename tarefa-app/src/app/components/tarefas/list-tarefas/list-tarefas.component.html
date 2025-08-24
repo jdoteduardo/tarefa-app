@@ -1,19 +1,12 @@
 <div class="tarefas-container">
   <div class="tarefas-content">
-    <div *ngIf="!criarOuEditar" class="header-row">
+    <div class="header-row">
       <button mat-raised-button color="primary" (click)="adicionarTarefa()">
         <mat-icon>add</mat-icon>
       </button>
     </div>
 
-    <app-form-tarefas
-      *ngIf="criarOuEditar"
-      [tarefa]="tarefaEditando"
-      (cancelar)="cancelarEdicao()"
-      (salvarOuEditarTarefa)="salvarOuEditarTarefa()"
-    ></app-form-tarefas>
-
-    <ng-container *ngIf="!criarOuEditar">
+    <ng-container>
       <!-- Filtro -->
       <mat-form-field appearance="outline" class="filtro-field">
         <mat-label>Filtrar</mat-label>
@@ -21,7 +14,7 @@
       </mat-form-field>
 
       <!-- Tabela -->
-      <table *ngIf="!criarOuEditar" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 tarefas-table">
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 tarefas-table">
         <ng-container matColumnDef="titulo">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Título </th>
           <td mat-cell *matCellDef="let tarefa"> {{tarefa.titulo}} </td>

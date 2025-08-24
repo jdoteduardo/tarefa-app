@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ITarefa } from '../../../interfaces/ITarefa';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { TarefaService } from '../../../services/tarefa.service';
 import { catchError } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-tarefas',
@@ -23,14 +24,14 @@ import { catchError } from 'rxjs';
   templateUrl: './form-tarefas.component.html',
   styleUrl: './form-tarefas.component.css'
 })
-export class FormTarefasComponent {
-  _tarefa: ITarefa | null = null;
+export class FormTarefasComponent implements OnInit {
+  tarefa: ITarefa | null = null;
   acao: 'Criar' | 'Editar' = 'Criar';
   tarefaForm: FormGroup;
   minDate: string;
   formInvalido: boolean = false;
 
-  constructor(private fb: FormBuilder, private tarefaService: TarefaService) {
+  constructor(private fb: FormBuilder, private tarefaService: TarefaService, private router: Router, private route: ActivatedRoute) {
     this.minDate = this.getTomorrow();
     this.tarefaForm = this.fb.group({
           TITULO: ['', [Validators.required, Validators.maxLength(100), Validators.minLength(3)]],
@@ -40,19 +41,26 @@ export class FormTarefasComponent {
         });
   }
 
-  @Input() set tarefa(tarefa: ITarefa | null) {
-    if (tarefa) {
-      this.acao = 'Editar';
-      this._tarefa = tarefa;
-      this.setForm();
-    }
-  }
-
   @Output() cancelar = new EventEmitter<void>();
   @Output() salvarOuEditarTarefa = new EventEmitter<void>();
 
-  get tarefa() {
-    return this._tarefa;
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+
+    if (id) {
+      this.acao = 'Editar';
+      this.tarefaService.buscarTarefaPorId(id)
+        .pipe(
+          catchError(error => {
+            throw error;
+          })
+        ).subscribe((tarefa: ITarefa) => {
+          this.tarefa = tarefa;
+          this.setForm();
+        });
+    } else {
+      this.acao = 'Criar';
+    }
   }
 
   getTomorrow(): string {
@@ -82,6 +90,7 @@ export class FormTarefasComponent {
     this.acao = 'Criar';
     this.tarefa = null;
     this.cancelar.emit();
+    this.router.navigate(['/tarefas']);
   }
 
   onSubmit() {
@@ -127,6 +136,7 @@ export class FormTarefasComponent {
         })
       ).subscribe((tarefaEditada: ITarefa) => {
         this.salvarOuEditarTarefa.emit();
+        this.router.navigate(['/tarefas']);
       });
   }
 
@@ -139,6 +149,7 @@ export class FormTarefasComponent {
         })
       ).subscribe((tarefaSalva: ITarefa) => {
         this.salvarOuEditarTarefa.emit();
+        this.router.navigate(['/tarefas']);
       });
   }
 }

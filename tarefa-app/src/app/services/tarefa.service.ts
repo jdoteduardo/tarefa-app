@@ -16,6 +16,10 @@ export class TarefaService {
     return this.baseHttp.getClient<ITarefa[]>(`${this.url}`);
   }
 
+  public buscarTarefaPorId(id: string) : Observable<ITarefa> {
+    return this.baseHttp.getClient<ITarefa>(`${this.url}/` + id);
+  }
+
   public salvarTarefa(tarefa: ITarefa) : Observable<ITarefa> {
     return this.baseHttp.postClient<ITarefa>(`${this.url}`, tarefa);
   }
