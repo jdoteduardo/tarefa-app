@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -16,21 +17,36 @@ namespace Tarefas.Application.Services
         private readonly IUsuarioRepository _authRepository;
         private readonly IMapper _mapper;
         private readonly IConfiguration _config;
+        private readonly ILogger<AuthService> _logger;
 
-        public AuthService(IUsuarioRepository authRepository, IMapper mapper, IConfiguration config)
+        public AuthService(
+            IUsuarioRepository authRepository, 
+            IMapper mapper, 
+            IConfiguration config,
+            ILogger<AuthService> logger)
         {
             _authRepository = authRepository;
             _mapper = mapper;
             _config = config;
+            _logger = logger;
         }
 
         public async Task<string> Login(UsuarioDTO usuarioDTO)
         {
+            _logger.LogInformation("Iniciando processo de login para usuário: {Login}", usuarioDTO.Login);
+            
             var usuario = _mapper.Map<Usuario>(usuarioDTO);
-            var usuarioExistente = await _authRepository.BuscarPorLoginESenha(usuario);
+            _logger.LogDebug("Mapeamento de DTO para entidade realizado com sucesso");
 
+            var usuarioExistente = await _authRepository.BuscarPorLoginESenha(usuario);
+            
             if (usuarioExistente == null)
+            {
+                _logger.LogWarning("Tentativa de login mal sucedida para o usuário: {Login}", usuarioDTO.Login);
                 throw new ApplicationException("Usuário ou senha inválidos.");
+            }
+
+            _logger.LogInformation("Usuário {Login} autenticado com sucesso. Gerando token...", usuarioExistente.Login);
 
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]!));
             var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
@@ -45,7 +61,10 @@ namespace Tarefas.Application.Services
                 signingCredentials: signinCredentials
             );
 
-            return new JwtSecurityTokenHandler().WriteToken(tokenOptions);
+            var token = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
+            _logger.LogInformation("Token JWT gerado com sucesso para o usuário: {Login}", usuarioExistente.Login);
+
+            return token;
         }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Tarefas.Application.Configs;
 using Tarefas.Application.DTO;
 using Tarefas.Application.Interfaces;
@@ -11,6 +12,7 @@ using Tarefas.Application.Validator;
 using Tarefas.Domain.Interfaces;
 using Tarefas.Infra.Context;
 using Tarefas.Infra.Repositories;
+using log4net;
 
 namespace Tarefas.Ioc
 {
@@ -33,17 +35,21 @@ namespace Tarefas.Ioc
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
+            var logger = LogManager.GetLogger(typeof(TarefaDbContext));
 
             services.AddDbContext<TarefaDbContext>(options =>
-                            options.UseMySql(
-                                connectionString,
-                                ServerVersion.AutoDetect(connectionString),
-                                mySqlOptions => mySqlOptions.EnableRetryOnFailure(
-                                    maxRetryCount: 5,
-                                    maxRetryDelay: TimeSpan.FromSeconds(10),
-                                    errorNumbersToAdd: null
-                                )
-                            ).EnableSensitiveDataLogging());
+                options.UseMySql(
+                    connectionString,
+                    ServerVersion.AutoDetect(connectionString),
+                    mySqlOptions => mySqlOptions.EnableRetryOnFailure(
+                        maxRetryCount: 5,
+                        maxRetryDelay: TimeSpan.FromSeconds(10),
+                        errorNumbersToAdd: null
+                    )
+                )
+                .LogTo(message => logger.Info(message), LogLevel.Information)
+                .EnableSensitiveDataLogging()
+                .EnableDetailedErrors());
 
             services.AddScoped<ITarefaRepository, TarefaRepository>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
