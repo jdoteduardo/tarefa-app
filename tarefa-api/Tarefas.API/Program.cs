@@ -40,7 +40,7 @@ builder.Services.AddSwaggerGen();
 builder.Logging.AddLog4Net();
 XmlConfigurator.Configure(new FileInfo("log4net.config"));
 
-builder.Services.AddTransient<GlobalExceptionHandlingMiddleware>();
+builder.Services.AddSingleton<GlobalExceptionHandlingMiddleware>();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddService(builder.Configuration);
 builder.Services.AddSwaggerDocumentation();
